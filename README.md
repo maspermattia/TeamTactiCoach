@@ -45,4 +45,21 @@ Classifica:
 Pari merito: In caso di parità di punti o di altre statistiche, potrebbe essere difficile determinare una classifica precisa, causando potenziali dispute.
 
 
+SCHEMA RELAZIONALE:
+k=chiaveprimaria
+
+squadra(squadraIDk,punti,nomesquadra,giocatoreID,partitaID,userID)
+
+classifica(classificaIDk,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname,giocatoreID)
+
+allenatoretesserato(USERIDk,categoria,nomeutente,password)
+
+partita(PartitaIDk,avversario,titolari,gol,assist,giocatoreID,cartellinirossi,cartellinigialli)
+
+giocatore(giocatoriIDk,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
+
+allenamento(allenamentoID,giocatoreID,presente)
+
+partecipa(datak,giocatoreID,allenamentoID)
+
 
