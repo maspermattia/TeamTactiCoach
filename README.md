@@ -16,7 +16,7 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 
 **Gestione delle partite:**
 - Crea Partita: Permette agli utenti di creare e pianificare nuove partite, assegnando i titolari e impostare la data.
-- Modifica Partita: Consente agli utenti di apportare modifiche alle partite già programmate, come cambiare data, avversario o luogo.
+- Modifica Partita: Consente agli utenti di apportare modifiche alle partite già programmate, come cambiare data o avversario.
 - Registra Risultati: Consente agli utenti di inserire i risultati delle partite, compresi gol, assist, e cartellini gialli/rossi.
 
 **Gestione allenamenti:**
