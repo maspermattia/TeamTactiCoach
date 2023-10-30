@@ -61,6 +61,8 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 
 **partita**
 ![partita](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/64fa6d81-f94b-45d5-8c09-c147b734418a)
+![partite2](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/c857b1e2-0e7c-4f84-a8f8-c896b9fa57de)
+
 
 
 
