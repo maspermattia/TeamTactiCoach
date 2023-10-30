@@ -3,7 +3,7 @@
 **PROBLEMA**
 visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale e ottimizzare la visualizzazione
 
-##FUNZIONALITÀ:##
+## FUNZIONALITÀ:##
 
 **Registrazione Utente:**
 - Registra Utente: Permette agli utenti di registrarsi inserendo il nome della squadra e altre informazioni pertinenti.
@@ -26,7 +26,7 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 - Visualizza Classifica: Permette agli utenti di visualizzare la classifica aggiornata.
 
 
-##SCHEMA RELAZIONALE:##
+## SCHEMA RELAZIONALE:##
 
 - squadra(<ins>squadraID</ins>,punti,nomesquadra,giocatoreID,partitaID,userID,data)
 - classifica(<ins>classificaID</ins>,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
