@@ -3,7 +3,7 @@
 **PROBLEMA**
 visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale e ottimizzare la visualizzazione
 
-## FUNZIONALITÀ:##
+## FUNZIONALITÀ:
 
 **Registrazione Utente:**
 - Registra Utente: Permette agli utenti di registrarsi inserendo il nome della squadra e altre informazioni pertinenti.
@@ -25,11 +25,11 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 **Classifica:**
 - Visualizza Classifica: Permette agli utenti di visualizzare la classifica aggiornata.
 
-## SCHEMA E-R:##
+## SCHEMA E-R:
 ![schema_er](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/4fc48bda-89d1-4808-91ca-951bbfa2fca2)
 
 
-## SCHEMA RELAZIONALE:##
+## SCHEMA RELAZIONALE:
 
 - squadra(<ins>squadraID</ins>,punti,nomesquadra,giocatoreID,partitaID,userID,data)
 - classifica(<ins>classificaID</ins>,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
@@ -38,4 +38,36 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 - giocatore(<ins>giocatoriID</ins>,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
 - allenamento(<ins>allenamentoID</ins>,<ins>giocatoreID</ins>,presente,data)
 - partecipa(data_k,giocatoreID,allenamentoID)
+
+## MOCKUP:
+
+**signin**
+![registati](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/4a5bafa9-ebba-40c2-8f7c-6fdba5d3baac)
+
+**login**
+![log_in](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/9658821b-f331-4003-ad08-0b2966eb0eb1)
+
+**giocatore**
+![giocatore](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/adc93359-cb3d-45d3-8576-4a14e65b4dad)
+
+**classifica**
+![classifica](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/8de2d8de-c8bd-46a2-bdf5-fe5c6317cf7e)
+
+**allenamento**
+![allenamento](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/2f8fc655-9f99-4536-83fc-9a9965b4873f)
+
+**schermata iniziale**
+![schermatainiziale](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/bc596190-732b-49ed-abe1-881e9a1db06f)
+
+**partita**
+![partita](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/64fa6d81-f94b-45d5-8c09-c147b734418a)
+
+
+
+
+
+
+
+
+
 
