@@ -37,7 +37,7 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 - partita(<ins>partitaID</ins>,avversario,titolari,gol,assist,giocatoreID,cartellinirossi,cartellinigialli)
 - giocatore(<ins>giocatoriID</ins>,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
 - allenamento(<ins>allenamentoID</ins>,<ins>giocatoreID</ins>,presente,data)
-- partecipa(data_k,giocatoreID,allenamentoID)
+- partecipa(<ins>data</ins>,giocatoreID,allenamentoID)
 
 ## MOCKUP:
 
