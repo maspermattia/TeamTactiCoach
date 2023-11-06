@@ -34,7 +34,7 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 - squadra(<ins>squadraID</ins>,punti,nomesquadra,giocatoreID,partitaID,userID,data)
 - classifica(<ins>classificaID</ins>,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
 - allenatoretesserato(<ins>userID</ins>,categoria,nomeutente,password)
-- partita(<ins>partitaID</ins>,avversario,titolari,gol,assist,giocatoreID,cartellinirossi,cartellinigialli)
+- partita(<ins>partitaID</ins>,avversario,titolari,gol,assist,cartellinirossi,cartellinigialli)
 - giocatore(<ins>giocatoriID</ins>,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
 - allenamento(<ins>allenamentoID</ins>,<ins>giocatoreID</ins>,presente,data)
 - partecipa(<ins>data</ins>,giocatoreID,allenamentoID)
