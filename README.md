@@ -31,13 +31,13 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 
 ## SCHEMA RELAZIONALE:
 
-- squadra(<ins>squadraID</ins>,punti,nomesquadra,giocatoreID,partitaID,userID,data)
-- classifica(<ins>classificaID</ins>,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
-- allenatoretesserato(<ins>userID</ins>,categoria,nomeutente,password)
-- partita(<ins>partitaID</ins>,avversario,titolari,gol,assist,cartellinirossi,cartellinigialli)
-- giocatore(<ins>giocatoriID</ins>,cartellinigialli,assenze,cartellinirossi,assist,gol,nickname)
-- allenamento(<ins>allenamentoID</ins>,<ins>giocatoreID</ins>,presente,data)
-- partecipa(<ins>data</ins>,giocatoreID,allenamentoID)
+- squadra(<ins>squadraID</ins>,categoria)
+- allenatoretesserato(<ins>userID</ins>,squadraID,email,password)
+- partita(<ins>partitaID</ins>,data,risultato,avversario,squadraID)
+- giocatore(<ins>giocatoriID</ins>,squadraID,nickname)
+- allenamento(<ins>allenamentoID</ins>,data)
+- partecipa(<ins>giocatoreID</ins>,<ins>allenamentoID</ins>,presenza)
+- statistiche(<ins>giocatoreID</ins>,<ins>partitaID</ins>,gol,assist,cartellinigialli,cartellinirossi,titolare)
 
 ## MOCKUP:
 
