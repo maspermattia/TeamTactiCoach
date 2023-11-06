@@ -26,7 +26,7 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 - Visualizza Classifica: Permette agli utenti di visualizzare la classifica aggiornata.
 
 ## SCHEMA E-R:
-https://github.com/maspermattia/TeamTactiCoach/blob/main/schema_er.png
+schema_er.png
 
 
 ## SCHEMA RELAZIONALE:
