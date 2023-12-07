@@ -72,55 +72,8 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 
 **SQL**
 
-CREATE DATABASE IF NOT EXISTS  calcio;
-USE calcio;
- 
-CREATE TABLE IF NOT EXISTS Squadra (
-    SquadraID INT PRIMARY KEY ,
-    Categoria VARCHAR(255)
-);
-CREATE TABLE IF NOT EXISTS AllenatoreTesserato (
-    UserID INT PRIMARY KEY,
-    SquadraID INT  REFERENCES Squadra(SquadraID),
-    Email VARCHAR(255),
-    Password VARCHAR(255)
-);
+![sql_tabelle](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/0b0976a2-e634-467b-a233-e74549cbfc2e)
 
-CREATE TABLE IF NOT EXISTS Partita (
-    PartitaID INT PRIMARY KEY AUTO_INCREMENT,
-    Data DATE,
-    Risultato VARCHAR(255),
-    Avversario VARCHAR(255),
-    SquadraID INT REFERENCES Squadra(SquadraID)
-);
-
-CREATE TABLE IF NOT EXISTS Giocatore (
-    GiocatoriID INT PRIMARY KEY AUTO_INCREMENT,
-    SquadraID INT REFERENCES Squadra(SquadraID),
-    Nickname VARCHAR(255)
-);
-
-CREATE TABLE IF NOT EXISTS Allenamento (
-    AllenamentoID INT PRIMARY KEY AUTO_INCREMENT,
-    Data DATE
-);
-
-CREATE TABLE IF NOT EXISTS Partecipa (
-    GiocatoreID INT REFERENCES Giocatore(GiocatoreID),
-    AllenamentoID INT REFERENCES Allenamento(AllenamentoID),
-    Presenza BOOLEAN<br>
-);
-
-CREATE TABLE IF NOT EXISTS Statistiche (<br>
-    GiocatoreID INT  REFERENCES Giocatore(GiocatoreID),  
-    PartitaID INT  REFERENCES Partita(PartitaID),
-    PRIMARY KEY(GiocatoreID,PartitaID),
-    Gol INT,<br>
-    Assist INT,<br>
-    CartelliniGialli INT,
-    CartelliniRossi INT,
-    Titolare BOOLEAN
-);
 
 
 
