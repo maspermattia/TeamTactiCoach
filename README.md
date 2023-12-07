@@ -71,6 +71,7 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 ![partite2](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/c857b1e2-0e7c-4f84-a8f8-c896b9fa57de)
 
 **SQL**
+
 CREATE DATABASE IF NOT EXISTS  calcio;
 USE calcio;
  
