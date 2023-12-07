@@ -72,7 +72,8 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 
 **SQL**
 
-![sql_tabelle](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/0b0976a2-e634-467b-a233-e74549cbfc2e)
+![sql_tabelle](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/284a2515-2b52-47c4-a3e9-9007ad9fa6f3)
+
 
 
 
