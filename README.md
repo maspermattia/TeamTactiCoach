@@ -72,6 +72,8 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 
 **SQL**
 
+-    docker run --name myXampp -p 41061:22 -p 41062:80 -d -v /workspaces/TeamTacticCoach:/www tomsik68/xampp:8
+
 ![sql_tabelle](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/284a2515-2b52-47c4-a3e9-9007ad9fa6f3)
 
 
