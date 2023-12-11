@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS  calcio;
-USE calcio;
+CREATE DATABASE IF NOT EXISTS  TeamTactiCoach;
+USE TeamTactiCoach;
  
 CREATE TABLE IF NOT EXISTS Squadra (
     SquadraID INT PRIMARY KEY ,
