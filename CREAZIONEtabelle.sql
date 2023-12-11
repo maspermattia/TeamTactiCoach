@@ -9,7 +9,11 @@ CREATE TABLE IF NOT EXISTS AllenatoreTesserato (
     UserID INT PRIMARY KEY,
     SquadraID INT  REFERENCES Squadra(SquadraID),
     Email VARCHAR(255),
-    Password VARCHAR(255)
+    Password VARCHAR(255),
+    Username VARCHAR(255),
+    Nome VARCHAR(255),
+    Cognome VARCHAR(255),
+    DataNascita DATE
 );
 
 CREATE TABLE IF NOT EXISTS Partita (
