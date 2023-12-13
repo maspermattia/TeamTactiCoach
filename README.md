@@ -3,6 +3,9 @@
 **PROBLEMA**
 visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale e ottimizzare la visualizzazione
 
+**TARGET**
+allenatori tesserati 
+
 ## FUNZIONALITÀ:
 
 **Registrazione Utente:**
@@ -11,7 +14,7 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 
 **Giocatori:**
 - Aggiungi Giocatore: Permette agli utenti di inserire nuovi giocatori nella lista della squadra.
-- Modifica Dati Giocatore: Consente agli utenti di aggiornare le informazioni sui giocatori, come nome, gol, assist, cartellini gialli e rossi, ecc.
+- Modifica Giocatore: Permette agli utenti di cambiare il nickname.
 - Elimina Giocatore: Permette agli utenti di rimuovere un giocatore dalla squadra.
 
 **Gestione delle partite:**
@@ -26,13 +29,14 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 - Visualizza Classifica: Permette agli utenti di visualizzare la classifica aggiornata.
 
 ## SCHEMA E - R:
+
 ![schema_er.png](https://github.com/maspermattia/TeamTactiCoach/blob/d998454b18082c49d6cf0947ebb508281b9570e1/schema_er.png)
 
 
 ## SCHEMA RELAZIONALE:
 
 - squadra(<ins>squadraID</ins>,categoria)
-- allenatoretesserato(<ins>userID</ins>,squadraID,email,password)
+- allenatoretesserato(<ins>userID</ins>,squadraID,email,password,username,nome,cognome,dataDiNascita)
 - partita(<ins>partitaID</ins>,data,risultato,avversario,squadraID)
 - giocatore(<ins>giocatoriID</ins>,squadraID,nickname)
 - allenamento(<ins>allenamentoID</ins>,data)
@@ -72,10 +76,11 @@ visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale
 
 **SQL**
 
--    docker run --name myXampp -p 41061:22 -p 41062:80 -d -v /workspaces/TeamTacticCoach:/www tomsik68/xampp:8
-
 ![sql_tabelle](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/284a2515-2b52-47c4-a3e9-9007ad9fa6f3)
 
+## DATABASE
+
+-    docker run --name myXampp -p 41061:22 -p 41062:80 -d -v /workspaces/TeamTacticCoach:/www tomsik68/xampp:8
 
 
 
