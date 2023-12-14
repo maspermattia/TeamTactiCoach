@@ -34,6 +34,10 @@
                 <label for="mail">Mail:</label>
                 <input type="email" name="mail" required>
             </div>
+            <div class="form-group">
+                <label for="ruolo">ruolo:</label>
+                <input type="ruolo" name="ruolo" required>
+            </div>
             <button type="submit">Registrati</button>
         </form>
         <p>Se hai già un account, effettua il <a href="login.php">login</a>.</p>

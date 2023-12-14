@@ -1,57 +1,40 @@
 <?php
-// Connessione al database 
-$servename = "localhost";
+$servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "TeamTactiCoach";
+$dbname = "TeamTactiCoach"; 
 
-$conn = new mysqli($servename, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Controllo della connessione
 if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
 
-// Registrazione utente
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
+    $email = $_POST["email"];
     $nome = $_POST["nome"];
     $cognome = $_POST["cognome"];
+    $ruolo = "utente";
+    $username = $_POST["username"];
     $password = $_POST["password"];
-    $dataDiNascita = $_POST["dataDiNascita"];
-    $mail = $_POST["mail"];
-   
 
-    // Verifica se il nome,email esistono già nel database
-    $verifica = "SELECT * FROM Utente WHERE Username='$username' AND Mail='$mail'";
+    $verifica = "SELECT * FROM AllenatoreTesserato WHERE Username='$username' OR Email='$email'"; 
     $result = $conn->query($verifica);
 
     if ($result->num_rows > 0) {
-        echo "Errore: Il nome utente '$username' o l'indirizzo email '$mail' sono già in uso ";
+        echo "Username o email già esistenti. Scegliere un altro.";
     } else {
-        
-                }
-            // Hash della password con md5
-                $hashPassword = md5($password);
+        $passcrip = md5($password);
 
-                // Inserimento dati nel database
-                $sql = "INSERT INTO Utente (Username, Nome, Cognome, Password, DataDiNascita,Mail) 
-                    VALUES ('$username', '$nome', '$cognome', '$hashPassword', '$dataDiNascita', '$mail')";
+        $sql = "INSERT INTO AllenatoreTesserato (Email, Nome, Cognome, Ruolo, Username, Password) VALUES ('$email', '$nome', '$cognome', '$ruolo', '$username', '$passcrip')";
+        if ($conn->query($sql) === TRUE) {
+            echo "Registrazione avvenuta con successo";
+            header("Location: login.php");
+        } else {
+            echo "Errore nella registrazione: " . $conn->error;
+        }
+    }
 
-                if ($conn->query($sql) === TRUE) {
-                    echo "Registrazione avvenuta con successo";
-                    header("Location: Login.php");
-                    exit();
-                } else {
-                    echo "Errore: " . $sql . "<br>" . $conn->error;
-                }
-     }  
-      
-
-
-// Chiudi connessione database
-$conn->close();
-
-// Esci dallo script
-exit();
+    $conn->close();
+}
 ?>

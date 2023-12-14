@@ -1,9 +1,14 @@
 # TeamTactiCoach
+**prerequisito:**
+
+avere XAMP sulla propria macchina, e dentro htdocs la cartella di TeamTactiCoach
 
 **PROBLEMA**
-visualizzare tutti i dati che un allenatore prende su carta, in maniera digitale e ottimizzare la visualizzazione
+
+passare da carta a tecnologia per la gestione delle informazioni di tutti i componenti della squadra per sapere le statistiche di tutti i giocatori, le assenze/gol con una classifica
 
 **TARGET**
+
 allenatori tesserati 
 
 ## FUNZIONALITÀ:
@@ -35,8 +40,8 @@ allenatori tesserati
 
 ## SCHEMA RELAZIONALE:
 
-- squadra(<ins>squadraID</ins>,categoria)
-- allenatoretesserato(<ins>userID</ins>,squadraID,email,password,username,nome,cognome,dataDiNascita)
+- squadra(<ins>squadraID</ins>,userID,categoria)
+- allenatoretesserato(<ins>userID</ins>,email,password,username,nome,cognome,dataDiNascita,ruolo)
 - partita(<ins>partitaID</ins>,data,risultato,avversario,squadraID)
 - giocatore(<ins>giocatoriID</ins>,squadraID,nickname)
 - allenamento(<ins>allenamentoID</ins>,data)
@@ -76,9 +81,65 @@ allenatori tesserati
 
 **SQL**
 
+```
+CREATE DATABASE IF NOT EXISTS  TeamTactiCoach;
+USE TeamTactiCoach;
+ 
+CREATE TABLE IF NOT EXISTS Squadra (
+    SquadraID INT PRIMARY KEY ,
+    Categoria VARCHAR(255),
+    UserID INT REFERENCES AllenatoreTesserato(UserID),
+);
+CREATE TABLE IF NOT EXISTS AllenatoreTesserato (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    Email VARCHAR(255),
+    Password VARCHAR(255),
+    Username VARCHAR(255),
+    Nome VARCHAR(255),
+    Cognome VARCHAR(255),
+    DataNascita DATE,
+    ruolo VARCHAR(255)
+);
 
+CREATE TABLE IF NOT EXISTS Partita (
+    PartitaID INT PRIMARY KEY AUTO_INCREMENT,
+    Data DATE,
+    Risultato VARCHAR(255),
+    Avversario VARCHAR(255),
+    SquadraID INT REFERENCES Squadra(SquadraID)
+);
 
-## DATABASE
+CREATE TABLE IF NOT EXISTS Giocatore (
+    GiocatoriID INT PRIMARY KEY AUTO_INCREMENT,
+    SquadraID INT REFERENCES Squadra(SquadraID),
+    Nickname VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS Allenamento (
+    AllenamentoID INT PRIMARY KEY AUTO_INCREMENT,
+    Data DATE
+);
+
+CREATE TABLE IF NOT EXISTS Partecipa (
+    GiocatoreID INT REFERENCES Giocatore(GiocatoreID),
+    AllenamentoID INT REFERENCES Allenamento(AllenamentoID),
+    Presenza BOOLEAN
+);
+
+CREATE TABLE IF NOT EXISTS Statistiche (
+    GiocatoreID INT  REFERENCES Giocatore(GiocatoreID),  
+    PartitaID INT  REFERENCES Partita(PartitaID),
+    PRIMARY KEY(GiocatoreID,PartitaID),
+    Gol INT,
+    Assist INT,
+    CartelliniGialli INT,
+    CartelliniRossi INT,
+    Titolare BOOLEAN
+);
+
+```
+
+## DATABASE SU XAMP
 
 -    docker run --name myXampp -p 41061:22 -p 41062:80 -d -v /workspaces/TeamTacticCoach:/www tomsik68/xampp:8
 

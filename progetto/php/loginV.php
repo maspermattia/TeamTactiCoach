@@ -1,5 +1,5 @@
 <?php
-// Connessione al database 
+// Connessione al database
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 // Funzione per verificare l'autenticità dell'utente
 function verificaAutenticita($conn, $username, $password) {
     // Utilizza le query parametrizzate per evitare SQL injection
-    $verifica = "SELECT * FROM allenatoretesserato WHERE username=? AND password=?";
+    $verifica = "SELECT * FROM AllenatoreTesserato WHERE Username=? AND Password=?";
     $stmt = $conn->prepare($verifica);
     $stmt->bind_param("ss", $username, $password);
 
@@ -25,23 +25,36 @@ function verificaAutenticita($conn, $username, $password) {
     return $stmt->num_rows > 0;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    $password = md5($_POST["password"]);
 
-    // Verifica se l'utente esiste nel database
     if (verificaAutenticita($conn, $username, $password)) {
+        // Ottieni il ruolo dell'utente
+        $ruoloQuery = "SELECT Ruolo FROM AllenatoreTesserato WHERE Username=?";
+        $stmt = $conn->prepare($ruoloQuery);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->bind_result($ruolo);
+        $stmt->fetch();
+
         // Inizializza la sessione
         session_start();
 
-        // Memorizza l'username nella sessione
+        // Memorizza l'username e il ruolo nella sessione
         $_SESSION["username"] = $username;
+        $_SESSION["ruolo"] = $ruolo;
 
-        // Reindirizza alla home
-        header("Location: Home.php");
+        // Reindirizza in base al ruolo
+        if ($ruolo == "admin") {
+            header("Location: homeadmin.php");
+        } else {
+            header("Location: Home.php");
+        }
         exit();
     } else {
         echo "Errore: Nome utente o password non validi.";
+        header("Location: login.php");
     }
 }
 
