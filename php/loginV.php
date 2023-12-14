@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         if ($ruolo == "admin") {
             header("Location: homeadmin.php");
         } else {
-            header("Location: Home.php");
+            header("Location: creasquadra.php");
         }
         exit();
     } else {

@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS  TeamTactiCoach;
 USE TeamTactiCoach;
  
 CREATE TABLE IF NOT EXISTS Squadra (
-    SquadraID INT PRIMARY KEY ,
+    SquadraID VARCHAR(255) PRIMARY KEY ,
     Categoria VARCHAR(255),
     UserID INT REFERENCES AllenatoreTesserato(UserID),
 );
