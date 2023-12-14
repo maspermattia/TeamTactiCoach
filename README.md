@@ -76,7 +76,7 @@ allenatori tesserati
 
 **SQL**
 
-![sql_tabelle](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/284a2515-2b52-47c4-a3e9-9007ad9fa6f3)
+
 
 ## DATABASE
 
