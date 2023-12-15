@@ -1,5 +1,4 @@
 <?php
-// Connessione al database
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -7,37 +6,23 @@ $dbname = "TeamTactiCoach";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Controllo della connessione
 if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
 
-// Funzione per verificare l'autenticità dell'utente
-function verificaAutenticita($conn, $username, $password) {
-    // Utilizza le query parametrizzate per evitare SQL injection
-    $verifica = "SELECT * FROM AllenatoreTesserato WHERE Username=? AND Password=?";
-    $stmt = $conn->prepare($verifica);
-    $stmt->bind_param("ss", $username, $password);
-
-    $stmt->execute();
-    $stmt->store_result();
-
-    return $stmt->num_rows > 0;
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
-    $password = md5($_POST["password"]);
+    $password = $_POST["password"];
+    $passcrip = md5($password);
 
-    if (verificaAutenticita($conn, $username, $password)) {
-        // Ottieni il ruolo dell'utente
-        $ruoloQuery = "SELECT Ruolo FROM AllenatoreTesserato WHERE Username=?";
-        $stmt = $conn->prepare($ruoloQuery);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->bind_result($ruolo);
-        $stmt->fetch();
+    // Utilizza le query parametrizzate per evitare SQL injection
+    $sql = "SELECT Ruolo FROM AllenatoreTesserato WHERE Username=? AND Password=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $passcrip);
+    $stmt->execute();
+    $stmt->bind_result($ruolo);
 
+    if ($stmt->fetch()) {
         // Inizializza la sessione
         session_start();
 
@@ -54,10 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         exit();
     } else {
         echo "Errore: Nome utente o password non validi.";
-        header("Location: login.php");
     }
+
+    $stmt->close();
 }
 
-// Chiudi connessione database
 $conn->close();
 ?>

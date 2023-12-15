@@ -11,18 +11,25 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
+    $username = $_POST["username"];
     $nome = $_POST["nome"];
     $cognome = $_POST["cognome"];
-    $ruolo = "utente";
-    $username = $_POST["username"];
     $password = $_POST["password"];
+    $email = $_POST["email"];
+    $ruolo = $_POST["ruolo"];;
+    
+    $verificaUsername = "SELECT * FROM AllenatoreTesserato WHERE Username='$username'";
+    $verificaEmail = "SELECT * FROM AllenatoreTesserato WHERE Email='$email'";
+    
+    $resultUsername = $conn->query($verificaUsername);
+    $resultEmail = $conn->query($verificaEmail);
 
-    $verifica = "SELECT * FROM AllenatoreTesserato WHERE Username='$username' OR Email='$email'"; 
-    $result = $conn->query($verifica);
-
-    if ($result->num_rows > 0) {
-        echo "Username o email già esistenti. Scegliere un altro.";
+    if ($resultUsername->num_rows > 20) {
+        echo "Username già esistente. Scegliere un altro.";
+        header("Location: registra.php");
+    } elseif ($resultEmail->num_rows > 20) {
+        echo "Email già esistente. Scegliere un'altra.";
+        header("Location: registra.php");
     } else {
         $passcrip = md5($password);
 
@@ -32,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: login.php");
         } else {
             echo "Errore nella registrazione: " . $conn->error;
+            header("Location: registra.php");
         }
     }
 
