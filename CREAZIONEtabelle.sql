@@ -4,11 +4,11 @@ USE TeamTactiCoach;
 CREATE TABLE IF NOT EXISTS Squadra (
     SquadraID VARCHAR(255) PRIMARY KEY ,
     Categoria VARCHAR(255),
-    UserID INT 
+    UserID  INT REFERENCES AllenatoreTesserato(UserID)
 );
 CREATE TABLE IF NOT EXISTS AllenatoreTesserato (
     UserID INT PRIMARY KEY AUTO_INCREMENT,
-    Email VARCHAR(255),
+    email VARCHAR(255),
     Password VARCHAR(255),
     Username VARCHAR(255),
     Nome VARCHAR(255),

@@ -9,7 +9,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
-
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->fetch()) {
         // Inizializza la sessione
-        session_start();
+       
 
         // Memorizza l'username e il ruolo nella sessione
         $_SESSION["username"] = $username;
@@ -41,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Errore: Nome utente o password non validi.";
     }
 
-    $stmt->close();
+
 }
 
-$conn->close();
+
 ?>

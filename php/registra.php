@@ -96,12 +96,12 @@ a:hover {
                 <input type="password" name="password" required>
             </div>
             <div class="form-group">
-                <label for="dataDiNascita">Data di Nascita:</label>
-                <input type="date" name="dataDiNascita" required>
+                <label for="DataNascita">Data di Nascita:</label>
+                <input type="date" name="DataNascita" required>
             </div>
             <div class="form-group">
-                <label for="mail">Mail:</label>
-                <input type="email" name="mail" required>
+                <label for="email">email:</label>
+                <input type="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="ruolo">ruolo:</label>
