@@ -11,26 +11,23 @@ if ($conn->connect_error) {
 }
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
+    $Username = $_POST["username"];
     $password = $_POST["password"];
     $passcrip = md5($password);
 
-    // Utilizza le query parametrizzate per evitare SQL injection
     $sql = "SELECT Ruolo FROM AllenatoreTesserato WHERE Username=? AND Password=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $username, $passcrip);
+    $stmt->bind_param("ss", $Username, $passcrip);
     $stmt->execute();
+    $stmt->bind_result($username);
     $stmt->bind_result($ruolo);
 
     if ($stmt->fetch()) {
-        // Inizializza la sessione
-       
-
-        // Memorizza l'username e il ruolo nella sessione
-        $_SESSION["username"] = $username;
+    
+        $_SESSION['username'] = $Username;
         $_SESSION["ruolo"] = $ruolo;
 
-        // Reindirizza in base al ruolo
+      
         if ($ruolo == "admin") {
             header("Location: homeadmin.php");
         } else {
@@ -43,6 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 }
-
+$conn->close();
 
 ?>
