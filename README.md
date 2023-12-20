@@ -2,6 +2,7 @@
 **prerequisito:**
 
 avere XAMP sulla propria macchina, e dentro htdocs la cartella di TeamTactiCoach
+estrarre i file php dalle cartelle per il corretto funzionamento
 
 **PROBLEMA**
 
