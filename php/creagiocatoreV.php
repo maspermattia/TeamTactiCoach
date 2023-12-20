@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         
         $stmt = $conn->prepare("INSERT INTO Giocatore (SquadraID, Nickname) VALUES (?, ?)");
-        $stmt->bind_param("is", $squadraID, $Nickname);
+        $stmt->bind_param("ss", $squadraID, $Nickname);
         
         if ($stmt->execute()) {
             header("Location: home.php");

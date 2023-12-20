@@ -1,3 +1,38 @@
+<?php
+session_start(); // Assicurati di iniziare la sessione
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "TeamTactiCoach";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
+}
+
+$Username = $_SESSION['username'];
+$SquadraID_query = "SELECT SquadraID FROM Squadra WHERE Username='$Username'";
+$resultSquadraID = $conn->query($SquadraID_query);
+
+if ($resultSquadraID) {
+    $row = $resultSquadraID->fetch_assoc();
+    $_SESSION['squadraID'] = $row['SquadraID'];
+} else {
+    echo "Errore nella query: " . $conn->error;
+}
+
+$verificaSquadraUtente_query = "SELECT * FROM Squadra WHERE Username='$Username'";
+$resultSquadraUtente = $conn->query($verificaSquadraUtente_query);
+
+if ($resultSquadraUtente->num_rows > 0) {
+    header("Location: home.php");
+    exit(); 
+}
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,10 +120,16 @@
                 <input type="text" name="squadraID" required>
             </div>
             <div class="form-group">
-                <label for="categoria">Categoria:</label>
-                <input type="text" name="categoria" required>
-            </div>
-            <button type="submit">Crea Squadra</button>
+    <label for="categoria">Categoria:</label>
+    <select name="categoria" required>
+        <option value="Juniores">Juniores</option>
+        <option value="Allievi">Allievi</option>
+        <option value="Giovanissimi">Giovanissimi</option>
+        <option value="Esordienti">Esordienti</option>
+        <option value="Pulcini">Pulcini</option>
+    </select>
+</div>
+    <button type="submit">Crea Squadra</button>
         </form>
     </div>
 </body>

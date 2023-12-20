@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         
         $stmt = $conn->prepare("INSERT INTO Partita (SquadraID, Avversario, Risultato, Data) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("isss", $squadraID, $avversario, $risultato, $data);
+        $stmt->bind_param("ssss", $squadraID, $avversario, $risultato, $data);
         
         if ($stmt->execute()) {
             header("Location: home.php");

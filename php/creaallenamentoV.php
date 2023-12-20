@@ -14,27 +14,20 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data = $_POST["data"];
-    $squadraID = $_SESSION['squadraID'];
-    $verificadata = "SELECT * FROM Allenamento WHERE Data='$data' AND SquadraID='$squadraID'";
-    $verificadata = $conn->query($verificadata);
+    $squadraID=$_SESSION['squadraID'] ;
+    $stmt = $conn->prepare("INSERT INTO Allenamento (SquadraID,Data) VALUES (?,?)");
+    $stmt->bind_param("ss",$squadraID, $data); // "s" indica che si tratta di una stringa
 
-    if ($verificadata->num_rows > 0) {
-        echo "è già presente un allenamento in questa data";
-        header("Location: creaallenamento.php");
+    if ($stmt->execute()) {
+        header("Location: home.php");
+        exit(); // Aggiunto exit() per evitare esecuzione successiva
     } else {
-        // Inserisci la partita nella tabella Partita
-        $stmt = $conn->prepare("INSERT INTO Allenamento (Data) VALUES (?)");
-        $stmt->bind_param("is",$data);
-
-        if ($stmt->execute()) {
-            header("Location: home.php");
-        } else {
-            echo "errore nella memorizzazione dell'allenamento: " . $stmt->error;
-            header("Location: creaallenamento.php");
-        }
-
-        $stmt->close();
+        echo "Errore nella memorizzazione dell'allenamento: " . $stmt->error;
+        header("Location: creaallenamento.php");
+        exit(); // Aggiunto exit() per evitare esecuzione successiva
     }
+
+    $stmt->close();
 }
 
 $conn->close();
