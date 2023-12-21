@@ -77,7 +77,7 @@ a:hover {
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form method="post" action="LoginV.php">
+        <form method="post" action="loginV.php">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" name="username" required>

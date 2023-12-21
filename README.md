@@ -2,7 +2,7 @@
 **prerequisito:**
 
 avere XAMP sulla propria macchina, e dentro htdocs la cartella di TeamTactiCoach
-estrarre i file php dalle cartelle per il corretto funzionamento
+
 
 **PROBLEMA**
 
@@ -147,6 +147,10 @@ CREATE TABLE IF NOT EXISTS Statistiche (
 ## DATABASE SU XAMP
 
 -    docker run --name myXampp -p 41061:22 -p 41062:80 -d -v /workspaces/TeamTacticCoach:/www tomsik68/xampp:8
+
+## per entrare da ADMIN 
+
+- inserisci nel ruolo admin
 
 
 
