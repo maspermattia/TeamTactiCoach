@@ -1,4 +1,4 @@
 <?php
 session_start();
-header("Location: Registra.php");
+header("Location: registra.php");
 ?>
