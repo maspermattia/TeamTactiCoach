@@ -36,9 +36,7 @@ allenatori tesserati
 
 ## SCHEMA E - R:
 
-![ER](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/4ccb2fa3-7d4f-411d-abad-31423dec36a8)
-
-
+![schema_er.png](https://github.com/maspermattia/TeamTactiCoach/blob/d998454b18082c49d6cf0947ebb508281b9570e1/schema_er.png)
 
 
 ## SCHEMA RELAZIONALE:
@@ -47,7 +45,7 @@ allenatori tesserati
 - allenatoretesserato(<ins>userID</ins>,email,password,username,nome,cognome,dataDiNascita,ruolo)
 - partita(<ins>partitaID</ins>,data,risultato,avversario,squadraID)
 - giocatore(<ins>giocatoriID</ins>,squadraID,nickname)
-- allenamento(<ins>allenamentoID</ins>,data,squadraID)
+- allenamento(<ins>allenamentoID</ins>,data)
 - partecipa(<ins>giocatoreID</ins>,<ins>allenamentoID</ins>,presenza)
 - statistiche(<ins>giocatoreID</ins>,<ins>partitaID</ins>,gol,assist,cartellinigialli,cartellinirossi,titolare)
 

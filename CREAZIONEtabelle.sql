@@ -23,8 +23,7 @@ CREATE TABLE IF NOT EXISTS Partita (
     Data DATE,
     Risultato VARCHAR(255),
     Avversario VARCHAR(255),
-    SquadraID VARCHAR(255),
-    FOREIGN KEY (SquadraID) REFERENCES Squadra(SquadraID)
+    SquadraID VARCHAR(255) REFERENCES Squadra(SquadraID)
 );
 
 CREATE TABLE IF NOT EXISTS Giocatore (

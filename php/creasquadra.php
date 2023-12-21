@@ -18,7 +18,7 @@ $resultSquadraID = $conn->query($SquadraID_query);
 
 if ($resultSquadraID) {
     $row = $resultSquadraID->fetch_assoc();
-    $_SESSION['squadraID'] = $row['SquadraID'];
+    $_SESSION['squadraID'] = $SquadraID_query;
 } else {
     echo "Errore nella query: " . $conn->error;
 }

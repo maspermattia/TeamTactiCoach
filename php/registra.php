@@ -78,7 +78,7 @@ a:hover {
 <body>
     <div class="container">
         <h2>Registrazione</h2>
-        <form method="post" action="registraV.php">
+        <form method="post" action="RegistraV.php">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" name="username" required>
