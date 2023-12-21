@@ -36,7 +36,8 @@ allenatori tesserati
 
 ## SCHEMA E - R:
 
-![schema_er.png](https://github.com/maspermattia/TeamTactiCoach/blob/d998454b18082c49d6cf0947ebb508281b9570e1/schema_er.png)
+![ER](https://github.com/maspermattia/TeamTactiCoach/assets/101709283/3a22a11e-5330-4c10-8a54-be9cbbad8bad)
+
 
 
 ## SCHEMA RELAZIONALE:
