@@ -47,7 +47,7 @@ allenatori tesserati
 - allenatoretesserato(<ins>userID</ins>,email,password,username,nome,cognome,dataDiNascita,ruolo)
 - partita(<ins>partitaID</ins>,data,risultato,avversario,squadraID)
 - giocatore(<ins>giocatoriID</ins>,squadraID,nickname)
-- allenamento(<ins>allenamentoID</ins>,data)
+- allenamento(<ins>allenamentoID</ins>,data,squadraID)
 - partecipa(<ins>giocatoreID</ins>,<ins>allenamentoID</ins>,presenza)
 - statistiche(<ins>giocatoreID</ins>,<ins>partitaID</ins>,gol,assist,cartellinigialli,cartellinirossi,titolare)
 
