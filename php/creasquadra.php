@@ -1,5 +1,5 @@
 <?php
-session_start(); // Assicurati di iniziare la sessione
+session_start(); 
 
 $servername = "localhost";
 $username = "root";
@@ -108,6 +108,27 @@ $conn->close();
         a:hover {
             text-decoration: underline;
         }
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 130px;
+        }
+
+        .logout a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            border: 1px solid #ffeead;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #45a049;
+        }
+
+        .logout a:hover {
+            background-color: #fff;
+            color: #333;
+        }
     </style>
 </head>
 
@@ -132,6 +153,9 @@ $conn->close();
     <button type="submit">Crea Squadra</button>
         </form>
     </div>
+    <div class="logout">
+                <a href="home.php">torna indietro</a>
+            </div>
 </body>
 
 </html>

@@ -73,6 +73,27 @@
         a:hover {
             text-decoration: underline;
         }
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 130px;
+        }
+
+        .logout a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            border: 1px solid #ffeead;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #45a049;
+        }
+
+        .logout a:hover {
+            background-color: #fff;
+            color: #333;
+        }
     </style>
 </head>
 
@@ -93,6 +114,9 @@
                 <input type="date" name="data" required>
             </div>
             <button type="submit">Crea partita</button>
+            <div class="logout">
+                <a href="home.php">torna indietro</a>
+            </div>
         </form>
     </div>
 </body>

@@ -62,7 +62,7 @@
 <h1>Elenco Giocatori</h1>
 
 <?php
-// Connessione al database (sostituisci con le tue credenziali)
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -75,13 +75,12 @@ if ($conn->connect_error) {
     die("Connessione al database fallita: " . $conn->connect_error);
 }
 
-// Query per recuperare tutti i giocatori e i relativi attributi
+
 $sql = "SELECT * FROM Giocatore";
 $result = $conn->query($sql);
 
-// Verifica se ci sono risultati
 if ($result->num_rows > 0) {
-    // Stampa i dati dei giocatori
+
     echo "<table border='1'>
             <tr>
                 <th>ID Giocatore</th>
@@ -102,12 +101,12 @@ if ($result->num_rows > 0) {
     echo "Nessun risultato trovato.";
 }
 
-// Chiudi la connessione al database
+
 $conn->close();
 ?>
 
-<!-- Aggiungi il pulsante per tornare a homeadmin.php -->
-<a href="homeadmin.php"><button>Torna a homeadmin.php</button></a>
+
+<a href="homeadmin.php"><button>Torna a home</button></a>
 
 </body>
 </html>

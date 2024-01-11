@@ -61,7 +61,7 @@ $conn->close();
         .logout {
             position: absolute;
             top: 20px;
-            right: 180px;
+            right: 220px;
         }
 
         .logout a {

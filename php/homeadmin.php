@@ -59,7 +59,7 @@ $conn->close();
         .logout {
             position: absolute;
             top: 20px;
-            right: 180px;
+            right: 220px;
         }
 
         .logout a {
@@ -73,7 +73,7 @@ $conn->close();
         }
 
         .logout a:hover {
-            background-color: #fff;
+            background-color: #ff6f69;
             color: #333;
         }
     </style>
@@ -88,6 +88,7 @@ $conn->close();
                     <li><a href="visualizzagiocatori.php">visualizza Giocatori</a></li>
                     <li><a href="visualizzapartite.php">visualizza Partite</a></li>
                     <li><a href="visualizzaallenamenti.php">visualizza Allenamenti</a></li>
+                    <li><a href="visualizzasquadre.php">visualizza Squadre</a></li>
                     
                 </ul>
             </nav>

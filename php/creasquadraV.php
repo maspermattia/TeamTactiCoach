@@ -1,5 +1,5 @@
 <?php
-session_start(); // Assicurati di iniziare la sessione
+session_start(); 
 
 $servername = "localhost";
 $username = "root";
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $Username=$_SESSION['username'];
     
-    // Verifica se l'utente ha già una squadra
+  
     $verificaSquadraUtente = "SELECT * FROM Squadra WHERE Username='$Username'";
     $resultSquadraUtente = $conn->query($verificaSquadraUtente);
 

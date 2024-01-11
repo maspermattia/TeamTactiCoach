@@ -111,7 +111,7 @@ $conn->close();
 ?>
 
 
-<a href="homeadmin.php"><button>Torna a homeadmin.php</button></a>
+<a href="homeadmin.php"><button>Torna a home</button></a>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizza Allenamenti</title>
+    <title>Visualizza Squadre</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,7 +59,7 @@
 </head>
 <body>
 
-<h1>Elenco Allenamenti</h1>
+<h1>Elenco Squadre</h1>
 
 <?php
 
@@ -76,28 +76,25 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT * FROM Allenamento";
+$sql = "SELECT * FROM Squadra";
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
-
+  
     echo "<table border='1'>
             <tr>
-                <th>ID Allenamento</th>
-                <th>Data</th>
-                <th>SquadraID</th>
-                <th>Segna presenze</th>
+                <th>username</th>
+                <th>ID Squadra</th>
+                <th>categoria</th>
             </tr>";
 
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td>" . $row["AllenamentoID"] . "</td>
-                <td>" . $row["Data"] . "</td>
+                <td>" . $row["Username"] . "</td>
                 <td>" . $row["SquadraID"] . "</td>
-                <td><a href=presenze.php><button>Segna presenze</button></a></td>
+                <td>" . $row["Categoria"] . "</td>
               </tr>";
-              $_SESSION['AllenamentoID'] = $row['AllenamentoID'];
     }
 
     echo "</table>";
