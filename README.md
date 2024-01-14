@@ -133,13 +133,15 @@ CREATE TABLE IF NOT EXISTS Partecipa (
 CREATE TABLE IF NOT EXISTS Statistiche (
     GiocatoreID INT  REFERENCES Giocatore(GiocatoreID),  
     PartitaID INT  REFERENCES Partita(PartitaID),
-    PRIMARY KEY(GiocatoreID,PartitaID),
+    SquadraID VARCHAR(255) REFERENCES Squadra(SquadraID),
+    statsID INT PRIMARY KEY AUTO_INCREMENT,
     Gol INT,
     Assist INT,
     CartelliniGialli INT,
     CartelliniRossi INT,
     Titolare BOOLEAN
 );
+
 
 
 ```
