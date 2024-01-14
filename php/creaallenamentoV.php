@@ -11,11 +11,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
-
+if (!isset($_SESSION['username'])) {
+    
+    header("Location: login.php");
+    exit();
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data = $_POST["data"];
     $squadraID=$_SESSION['squadraID'] ;
-    $stmt = $conn->prepare("INSERT INTO Allenamento (SquadraID,Data,) VALUES (?,?)");
+    $stmt = $conn->prepare("INSERT INTO Allenamento (SquadraID,Data) VALUES (?,?)");
     $stmt->bind_param("ss",$squadraID, $data); 
 
     if ($stmt->execute()) {

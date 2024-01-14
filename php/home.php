@@ -61,7 +61,7 @@ $conn->close();
         .logout {
             position: absolute;
             top: 20px;
-            right: 220px;
+            right: 180px;
         }
 
         .logout a {
@@ -90,6 +90,7 @@ $conn->close();
                     <li><a href="creagiocatore.php">Crea Giocatore</a></li>
                     <li><a href="creapartita.php">Crea Partita</a></li>
                     <li><a href="creaallenamento.php">Crea Allenamento</a></li>
+                    <li><a href="statistiche.php">agggiungi statistiche</a></li>
                     
                 </ul>
             </nav>

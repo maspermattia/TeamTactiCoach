@@ -70,7 +70,7 @@ $dbname = "TeamTactiCoach";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verifica della connessione
+
 if ($conn->connect_error) {
     die("Connessione al database fallita: " . $conn->connect_error);
 }
@@ -79,8 +79,9 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM Giocatore";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
 
+if ($result->num_rows > 0) {
+   
     echo "<table border='1'>
             <tr>
                 <th>ID Giocatore</th>

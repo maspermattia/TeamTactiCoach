@@ -3,7 +3,6 @@
 
 avere XAMP sulla propria macchina, e dentro htdocs la cartella di TeamTactiCoach
 
-
 **PROBLEMA**
 
 passare da carta a tecnologia per la gestione delle informazioni di tutti i componenti della squadra per sapere le statistiche di tutti i giocatori, le assenze/gol con una classifica
@@ -87,13 +86,13 @@ CREATE DATABASE IF NOT EXISTS  TeamTactiCoach;
 USE TeamTactiCoach;
  
 CREATE TABLE IF NOT EXISTS Squadra (
-    SquadraID VARCHAR(255) PRIMARY KEY ,
+    SquadraID INT PRIMARY KEY ,
     Categoria VARCHAR(255),
-    Username VARCHAR(255)
+    UserID INT 
 );
 CREATE TABLE IF NOT EXISTS AllenatoreTesserato (
     UserID INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(255),
+    Email VARCHAR(255),
     Password VARCHAR(255),
     Username VARCHAR(255),
     Nome VARCHAR(255),
@@ -103,25 +102,22 @@ CREATE TABLE IF NOT EXISTS AllenatoreTesserato (
 );
 
 CREATE TABLE IF NOT EXISTS Partita (
-
     PartitaID INT PRIMARY KEY AUTO_INCREMENT,
     Data DATE,
     Risultato VARCHAR(255),
     Avversario VARCHAR(255),
-    SquadraID VARCHAR(255),
-    FOREIGN KEY (SquadraID) REFERENCES Squadra(SquadraID)
+    SquadraID INT REFERENCES Squadra(SquadraID)
 );
 
 CREATE TABLE IF NOT EXISTS Giocatore (
     GiocatoriID INT PRIMARY KEY AUTO_INCREMENT,
-    SquadraID VARCHAR(255) REFERENCES Squadra(SquadraID),
+    SquadraID INT REFERENCES Squadra(SquadraID),
     Nickname VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS Allenamento (
     AllenamentoID INT PRIMARY KEY AUTO_INCREMENT,
-    Data DATE,
-    SquadraID VARCHAR(255) REFERENCES Squadra(SquadraID)
+    Data DATE
 );
 
 CREATE TABLE IF NOT EXISTS Partecipa (
@@ -133,8 +129,7 @@ CREATE TABLE IF NOT EXISTS Partecipa (
 CREATE TABLE IF NOT EXISTS Statistiche (
     GiocatoreID INT  REFERENCES Giocatore(GiocatoreID),  
     PartitaID INT  REFERENCES Partita(PartitaID),
-    SquadraID VARCHAR(255) REFERENCES Squadra(SquadraID),
-    statsID INT PRIMARY KEY AUTO_INCREMENT,
+    PRIMARY KEY(GiocatoreID,PartitaID),
     Gol INT,
     Assist INT,
     CartelliniGialli INT,
@@ -142,17 +137,11 @@ CREATE TABLE IF NOT EXISTS Statistiche (
     Titolare BOOLEAN
 );
 
-
-
 ```
 
 ## DATABASE SU XAMP
 
 -    docker run --name myXampp -p 41061:22 -p 41062:80 -d -v /workspaces/TeamTacticCoach:/www tomsik68/xampp:8
-
-## per entrare da ADMIN 
-
-- inserisci nel ruolo admin
 
 
 

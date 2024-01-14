@@ -81,13 +81,12 @@ $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
-
+    
     echo "<table border='1'>
             <tr>
                 <th>ID Allenamento</th>
                 <th>Data</th>
                 <th>SquadraID</th>
-                <th>Segna presenze</th>
             </tr>";
 
     while ($row = $result->fetch_assoc()) {
@@ -95,9 +94,7 @@ if ($result->num_rows > 0) {
                 <td>" . $row["AllenamentoID"] . "</td>
                 <td>" . $row["Data"] . "</td>
                 <td>" . $row["SquadraID"] . "</td>
-                <td><a href=presenze.php><button>Segna presenze</button></a></td>
               </tr>";
-              $_SESSION['AllenamentoID'] = $row['AllenamentoID'];
     }
 
     echo "</table>";

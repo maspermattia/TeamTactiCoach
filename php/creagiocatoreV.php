@@ -11,7 +11,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
-
+if (!isset($_SESSION['username'])) {
+    
+    header("Location: login.php");
+    exit();
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Nickname = $_POST["Nickname"];
     $Username=$_SESSION['username'];

@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS Partita (
     Data DATE,
     Risultato VARCHAR(255),
     Avversario VARCHAR(255),
-    SquadraID VARCHAR(255) REFERENCES Squadra(SquadraID)
+    SquadraID VARCHAR(255),
+    FOREIGN KEY (SquadraID) REFERENCES Squadra(SquadraID)
 );
 
 CREATE TABLE IF NOT EXISTS Giocatore (
@@ -47,7 +48,8 @@ CREATE TABLE IF NOT EXISTS Partecipa (
 CREATE TABLE IF NOT EXISTS Statistiche (
     GiocatoreID INT  REFERENCES Giocatore(GiocatoreID),  
     PartitaID INT  REFERENCES Partita(PartitaID),
-    PRIMARY KEY(GiocatoreID,PartitaID),
+    SquadraID VARCHAR(255) REFERENCES Squadra(SquadraID),
+    statsID INT PRIMARY KEY AUTO_INCREMENT,
     Gol INT,
     Assist INT,
     CartelliniGialli INT,

@@ -13,15 +13,6 @@ if ($conn->connect_error) {
 }
 
 $Username = $_SESSION['username'];
-$SquadraID_query = "SELECT SquadraID FROM Squadra WHERE Username='$Username'";
-$resultSquadraID = $conn->query($SquadraID_query);
-
-if ($resultSquadraID) {
-    $row = $resultSquadraID->fetch_assoc();
-    $_SESSION['squadraID'] = $SquadraID_query;
-} else {
-    echo "Errore nella query: " . $conn->error;
-}
 
 $verificaSquadraUtente_query = "SELECT * FROM Squadra WHERE Username='$Username'";
 $resultSquadraUtente = $conn->query($verificaSquadraUtente_query);
@@ -113,7 +104,6 @@ $conn->close();
             top: 20px;
             right: 130px;
         }
-
         .logout a {
             text-decoration: none;
             color: #fff;
@@ -154,7 +144,7 @@ $conn->close();
         </form>
     </div>
     <div class="logout">
-                <a href="home.php">torna indietro</a>
+                <a href="login.php">torna indietro</a>
             </div>
 </body>
 
