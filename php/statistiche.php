@@ -14,6 +14,7 @@ if ($conn->connect_error) {
 if (!isset($_SESSION['username'])) {
    
     header("Location: login.php");
+    session_destroy();
     exit();
 }
 $userID = $_SESSION['username'];
@@ -26,7 +27,7 @@ if ($result->num_rows > 0) {
     $squadraIDUtente = $row["SquadraID"];
 } else {
     
-    echo "Errore: SquadraID non disponibile per l'utente.";
+    echo "Errore: Nessuna squadra trovata per l'allenatore.";
     exit();
 }
 

@@ -53,7 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $_SESSION['username'] = $Username;
             $_SESSION['ruolo'] = $ruolo;
-            header("Location: creasquadra.php");
+            if ($ruolo == "admin") {
+                header("Location: homeadmin.php");
+            } else {
+                header("Location: creasquadra.php");
+            }
+            exit();
         }
 
         $stmt_squadra->close();

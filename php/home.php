@@ -10,7 +10,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
-
+if (!isset($_SESSION['username'])) {
+    
+    header("Location: login.php");
+    exit();
+}
 
 $conn->close();
 ?>
@@ -61,7 +65,7 @@ $conn->close();
         .logout {
             position: absolute;
             top: 20px;
-            right: 180px;
+            right: 200px;
         }
 
         .logout a {
@@ -91,7 +95,7 @@ $conn->close();
                     <li><a href="creapartita.php">Crea Partita</a></li>
                     <li><a href="creaallenamento.php">Crea Allenamento</a></li>
                     <li><a href="statistiche.php">agggiungi statistiche</a></li>
-                    
+                    <li><a href="presenze.php">presenze</a></li>
                 </ul>
             </nav>
             <div class="logout">

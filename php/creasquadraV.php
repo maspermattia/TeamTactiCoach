@@ -11,7 +11,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
-
+if (!isset($_SESSION['username'])) {
+    
+    header("Location: login.php");
+    session_destroy();
+    exit();
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $squadraID = $_POST["squadraID"];
     $categoria = $_POST["categoria"];
