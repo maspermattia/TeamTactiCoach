@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizza Giocatori</title>
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -56,6 +57,8 @@
             background-color: #45a049;
         }
     </style>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -70,44 +73,61 @@ $dbname = "TeamTactiCoach";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
 if ($conn->connect_error) {
     die("Connessione al database fallita: " . $conn->connect_error);
 }
-
 
 $sql = "SELECT * FROM Giocatore";
 $result = $conn->query($sql);
 
 
-if ($result->num_rows > 0) {
-   
     echo "<table border='1'>
             <tr>
                 <th>ID Giocatore</th>
                 <th>ID Squadra</th>
                 <th>Nickname</th>
+                <th>Azione</th>
             </tr>";
 
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>
+        echo "<tr id='row".$row["GiocatoriID"]."'>
                 <td>" . $row["GiocatoriID"] . "</td>
                 <td>" . $row["SquadraID"] . "</td>
                 <td>" . $row["Nickname"] . "</td>
+                <td><button class='delete' data-id='".$row["GiocatoriID"]."'>Elimina</button></td>
               </tr>";
     }
 
     echo "</table>";
-} else {
-    echo "Nessun risultato trovato.";
-}
 
 
 $conn->close();
 ?>
 
+<script>
+$(document).ready(function(){
+    $('.delete').click(function(){
+        var el = this;
+        var id = this.dataset.id;
+
+        $.ajax({
+            url: 'deleteplayer.php',
+            type: 'POST',
+            data: { id: id },
+            success: function(response){
+                    $(el).closest('tr').css('background','tomato');
+                    $(el).closest('tr').fadeOut(800,function(){
+                       $(this).remove();
+                    });
+            }
+        });
+    });
+});
+</script>
 
 <a href="homeadmin.php"><button>Torna a home</button></a>
 
 </body>
 </html>
+   
+

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizza Partite</title>
     <style>
+     
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -55,7 +56,11 @@
         button:hover {
             background-color: #45a049;
         }
+   
+
+
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -70,18 +75,14 @@ $dbname = "TeamTactiCoach";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
 if ($conn->connect_error) {
     die("Connessione al database fallita: " . $conn->connect_error);
 }
-
 
 $sql = "SELECT * FROM Partita";
 $result = $conn->query($sql);
 
 
-if ($result->num_rows > 0) {
-   
     echo "<table border='1'>
             <tr>
                 <th>ID Partita</th>
@@ -89,29 +90,51 @@ if ($result->num_rows > 0) {
                 <th>Risultato</th>
                 <th>Avversario</th>
                 <th>ID Squadra</th>
+                <th>Azione</th>
             </tr>";
 
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>
+        echo "<tr id='row".$row["PartitaID"]."'>
                 <td>" . $row["PartitaID"] . "</td>
                 <td>" . $row["Data"] . "</td>
                 <td>" . $row["Risultato"] . "</td>
                 <td>" . $row["Avversario"] . "</td>
                 <td>" . $row["SquadraID"] . "</td>
+                <td><button class='delete' data-id='".$row["PartitaID"]."'>Elimina</button></td>
               </tr>";
     }
 
     echo "</table>";
-} else {
-    echo "Nessun risultato trovato.";
-}
 
 
 $conn->close();
 ?>
 
+<script>
+$(document).ready(function(){
+    $('.delete').click(function(){
+        var el = this;
+        var id = this.dataset.id;
+
+        $.ajax({
+            url: 'deletepartita.php',
+            type: 'POST',
+            data: { id: id },
+            success: function(response){
+                
+                    $(el).closest('tr').css('background','tomato');
+                    $(el).closest('tr').fadeOut(800,function(){
+                       $(this).remove();
+                    });
+                
+            }
+        });
+    });
+});
+</script>
 
 <a href="homeadmin.php"><button>Torna a home</button></a>
 
 </body>
 </html>
+    

@@ -80,7 +80,7 @@ $sql = "SELECT * FROM Squadra";
 $result = $conn->query($sql);
 
 
-if ($result->num_rows > 0) {
+
   
     echo "<table border='1'>
             <tr>
@@ -98,9 +98,7 @@ if ($result->num_rows > 0) {
     }
 
     echo "</table>";
-} else {
-    echo "Nessun risultato trovato.";
-}
+
 
 
 $conn->close();

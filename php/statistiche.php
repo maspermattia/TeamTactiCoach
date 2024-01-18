@@ -22,14 +22,8 @@ $userID = $_SESSION['username'];
 
 $result = $conn->query("SELECT SquadraID FROM Squadra WHERE username = '$userID'");
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $squadraIDUtente = $row["SquadraID"];
-} else {
-    
-    echo "Errore: Nessuna squadra trovata per l'allenatore.";
-    exit();
-}
+
+    $squadraIDUtente = $_SESSION['squadraID'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $giocatoreID = mysqli_real_escape_string($conn, $_POST["giocatore"]);

@@ -98,7 +98,7 @@ $query = "SELECT G.Nickname, G.SquadraID, SUM(S.Gol) AS TotaleGol
 
 $result = $conn->query($query);
 
-if ($result->num_rows > 0) {
+
     echo "<table>";
     echo "<tr><th>Giocatore</th><th>Squadra</th><th>Totale Gol</th></tr>";
 
@@ -107,9 +107,7 @@ if ($result->num_rows > 0) {
     }
 
     echo "</table>";
-} else {
-    echo "Nessun risultato trovato.";
-}
+
 
 $conn->close();
 ?>
@@ -139,7 +137,7 @@ $queryAssist = "SELECT G.Nickname, G.SquadraID,
 
 $resultAssist = $conn->query($queryAssist);
 
-if ($resultAssist->num_rows > 0) {
+
     echo "<table>";
     echo "<tr><th>Giocatore</th><th>Squadra</th><th>Totale Assist</th></tr>";
 
@@ -152,9 +150,7 @@ if ($resultAssist->num_rows > 0) {
     }
 
     echo "</table>";
-} else {
-    echo "Nessun risultato trovato per la classifica degli assist.";
-}
+
 
 $conn->close();
 ?>
