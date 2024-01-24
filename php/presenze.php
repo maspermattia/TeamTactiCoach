@@ -103,7 +103,7 @@ if ($result->num_rows > 0) {
 
     echo "</table>";
 } else {
-    echo "Nessun risultato trovato.";
+   
 }
 
 $conn->close();
