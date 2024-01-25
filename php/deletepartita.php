@@ -16,9 +16,18 @@ if(isset($_POST['id'])){
 
     $sql = "DELETE FROM partita WHERE PartitaID = $id";
     $result = $conn->query($sql);
+    if($result){
+        echo "success";
+    }else {
+        echo "fail";
+    }
     $sqlstatistiche = "DELETE FROM statistiche WHERE PartitaID = $id";
     $resultstatistiche = $conn->query($sqlstatistiche);
-   
+    if($resultstatistiche){
+        echo "success";
+    }else {
+        echo "fail";
+    }
     
 }
 

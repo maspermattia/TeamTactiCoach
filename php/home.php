@@ -82,7 +82,13 @@ $conn->close();
             background-color: #fff;
             color: #333;
         }
+        
     </style>
+   
+</script>
+
+ 
+
 </head>
 <body>
 

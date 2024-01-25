@@ -100,29 +100,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     while ($row = $result->fetch_assoc()) {
         $giocatoreID = $row["GiocatoriID"];
         $presenza = isset($_POST['presenze'][$giocatoreID]) ? $_POST['presenze'][$giocatoreID] : '0';
+        
+        $sql = "DELETE FROM Partecipa WHERE GiocatoreID = '$giocatoreID' AND AllenamentoID = '$allenamentoID'";
+        $conn->query($sql);
+
         $sql = "INSERT INTO Partecipa (GiocatoreID, AllenamentoID, Presenza) VALUES ('$giocatoreID', '$allenamentoID', '$presenza')";
         $conn->query($sql);
     }
     header("Location: presenze.php"); 
     exit();
 }
-
 if ($result->num_rows > 0) {
     echo "<form method='post'>";
     while ($row = $result->fetch_assoc()) {
+        $giocatoreID = $row["GiocatoriID"];
+        
+        $sqlPresenza = "SELECT Presenza FROM Partecipa WHERE GiocatoreID = '$giocatoreID' AND AllenamentoID = '$allenamentoID'";
+        $resultPresenza = $conn->query($sqlPresenza);
+        $rowPresenza = $resultPresenza->fetch_assoc();
+        $presenza = $rowPresenza ? $rowPresenza["Presenza"] : null;
+        $checked = $presenza ? "checked" : "";
         echo "<label>" . $row["Nickname"] . "</label>";
-        echo "<input type='checkbox' name='presenze[" . $row["GiocatoriID"] . "]' value='1'>";
+        echo "<input type='checkbox' name='presenze[" . $row["GiocatoriID"] . "]' value='1' $checked>";
         echo "<br>";
     }
     echo "<input type='submit' value='Invia'>";
     echo "</form>";
 } else {
-    echo "Nessun risultato trovato.";
+   
 }
-
 $conn->close();
 ?>
-
 <a href="presenze.php"><button>Torna a presenze</button></a>
 
 </body>
