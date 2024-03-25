@@ -106,7 +106,7 @@
                 <input type="text" name="avversario" required>
             </div>
             <div class="form-group">
-                <label for="categoria">risultato(0-0):</label>
+                <label for="categoria">risultato:</label>
                 <input type="text" name="risultato" required>
             </div>
             <div class="form-group">

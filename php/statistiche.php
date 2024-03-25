@@ -31,9 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $checkExistingStats = $conn->query("SELECT * FROM Statistiche WHERE GiocatoreID = '$giocatoreID' AND PartitaID = '$partitaID'");
 
     if ($checkExistingStats->num_rows > 0) {
-        echo "Errore: Il giocatore ha già delle statistiche per la partita selezionata.";
+        echo  "Errore: Il giocatore ha già delle statistiche per la partita selezionata." ;
         exit();
     }
+
     $gol = mysqli_real_escape_string($conn, $_POST["gol"]);
     $assist = mysqli_real_escape_string($conn, $_POST["assist"]);
     $cartelliniGialli = mysqli_real_escape_string($conn, $_POST["cartellini_gialli"]);
@@ -43,13 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  
     if ($cartelliniGialli > 2 || $cartelliniRossi > 1) {
-        echo "Errore: Il numero massimo di cartellini gialli è 2 e il numero massimo di cartellini rossi è 1.";
+        echo "Errore: Il numero massimo di cartellini gialli è 2 e il numero massimo di cartellini rossi è 1." ;
         exit();
     }
 
 
     if ($cartelliniGialli > 1 && $cartelliniRossi > 0) {
-        echo "Errore: Non è possibile avere due cartellini gialli insieme a uno rosso.";
+        echO "oErrore: Non è possibile avere due cartellini gialli insieme a uno rosso." ;
         exit();
     }
 

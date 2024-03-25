@@ -13,6 +13,7 @@ if ($conn->connect_error) {
 if (!isset($_SESSION['username'])) {
     
     header("Location: login.php");
+    
     exit();
 }
 $conn->close();

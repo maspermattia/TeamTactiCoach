@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: registra.php");
         echo "Username già esistente. Scegliere un altro.";
         
-    } elseif ($resultemail->num_rows > 0) {
+    } else if ($resultemail->num_rows > 0) {
         echo "Email già esistente. Scegliere un'altra.";
         header("Location: registra.php");
     } else {
