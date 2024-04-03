@@ -107,6 +107,10 @@ a:hover {
                 <label for="ruolo">ruolo:</label>
                 <input type="ruolo" name="ruolo" required>
             </div>
+            <div class="form-group">
+                <label for="TenantID">TenantID:</label>
+                <input type="TenantID" name="TenantID" required>
+            </div>
             <button type="submit">Registrati</button>
         </form>
         <p>Se hai già un account, effettua il <a href="login.php">login</a>.</p>

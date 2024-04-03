@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $DataNascita = $_POST["DataNascita"];
     $ruolo = $_POST["ruolo"];
+    $TenantID = $_POST["TenantID"];
 
     
     $verificaUsername = "SELECT * FROM AllenatoreTesserato WHERE Username='$username'";
@@ -30,22 +31,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: registra.php");
         echo "Username già esistente. Scegliere un altro.";
         
-    } else if ($resultemail->num_rows > 0) {
+    } else if ($resultEmail->num_rows > 0) { // Correggi qui
         echo "Email già esistente. Scegliere un'altra.";
         header("Location: registra.php");
     } else {
         $passcrip = md5($password);
 
-        $sql = "INSERT INTO AllenatoreTesserato (email, Nome, Cognome, Ruolo, Username,DataNascita, Password) VALUES ('$email', '$nome', '$cognome', '$ruolo', '$username','$DataNascita' ,'$passcrip')";
-        if ($conn->query($sql) === TRUE) {
-            echo "Registrazione avvenuta con successo";
-            header("Location: login.php");
+        // Controlla se il TenantID esiste nella tabella tenant
+        $verificaTenant = "SELECT * FROM tenant WHERE TenantID='$TenantID'";
+        $resultTenant = $conn->query($verificaTenant);
+
+        if ($resultTenant->num_rows > 0) {
+            $sql = "INSERT INTO AllenatoreTesserato (email, Nome, Cognome, Ruolo, Username,DataNascita, Password,TenantID) VALUES ('$email', '$nome', '$cognome', '$ruolo', '$username','$DataNascita' ,'$passcrip','$TenantID')";
+            if ($conn->query($sql) === TRUE) {
+                echo "Registrazione avvenuta con successo";
+                header("Location: login.php");
+            } else {
+                echo "Errore nella registrazione: " . $conn->error;
+                header("Location: registra.php");
+            }
         } else {
-            echo "Errore nella registrazione: " . $conn->error;
+            echo "Il TenantID specificato non esiste.";
             header("Location: registra.php");
         }
     }
 }
-    $conn->close();
-
+$conn->close();
 ?>
