@@ -15,12 +15,15 @@
     </style>
 </head>
 <body>
+<h1>TOKEN</h1>
+<p><?php echo $_GET["token"]?></p>
 <h2>Comandi disponibili:</h2>
 <ul>
-    <li>Ricerca giocatori per nome: <a href="http://localhost/infomasper/API/api/giocatori/all">http://localhost/infomasper/API/api/giocatori</a></li>
-    <li>Ricerca squadre: <a href="http://localhost/infomasper/API/api/squadre/all">http://localhost/infomasper/API/api/squadre</a></li>
-    <li>Ricerca utenti: <a href="http://localhost/infomasper/API/api/utenti/all">http://localhost/infomasper/API/api/utenti</a></li>
-    <li>Ricerca allenamenti: <a href="http://localhost/infomasper/API/api/allenamenti/all">http://localhost/infomasper/API/api/allenamenti</a></li>
+    <li>Ricerca giocatori per nome: www/API/api/giocatori/all
+    <li>Ricerca squadre: www/API/api/squadre/all
+    <li>Ricerca utenti: www/API/api/utenti/all
+    <li>Ricerca allenamenti: www/API/api/allenamenti/all
+    <li>Valida token: www/API/validate
 </ul>
 
 <div id="response"></div>

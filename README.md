@@ -141,7 +141,11 @@ CREATE TABLE IF NOT EXISTS Statistiche (
 
 ## DATABASE SU XAMP
 
--    docker run --name myXampp -p 41061:22 -p 41062:80 -d -v /workspaces/TeamTacticCoach:/www tomsik68/xampp:8
+-    docker run --name myXampp -p 41061:22 -p 41062:80 -d -v /workspaces/TeamTactiCoach:/www tomsik68/xampp:8
+- per installare composer JWT
+   composer install --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-fileinfo
+
+
 
 
 
