@@ -33,10 +33,6 @@ allenatori tesserati
 **Classifica:**
 - Visualizza Classifica: Permette agli utenti di visualizzare la classifica aggiornata.
 
-## SCHEMA E - R:
-
-![schema_er.png](https://github.com/maspermattia/TeamTactiCoach/blob/d998454b18082c49d6cf0947ebb508281b9570e1/schema_er.png)
-
 
 ## SCHEMA RELAZIONALE:
 
