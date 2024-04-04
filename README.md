@@ -41,13 +41,13 @@ allenatori tesserati
 ## SCHEMA RELAZIONALE:
 
 - squadra(<ins>squadraID</ins>,userID,categoria)
-- allenatoretesserato(<ins>userID</ins>,email,password,username,nome,cognome,dataDiNascita,ruolo)
+- allenatoretesserato(<ins>userID</ins>,email,password,username,nome,cognome,dataDiNascita,ruolo,<ins>TenantID</ins>)
 - partita(<ins>partitaID</ins>,data,risultato,avversario,squadraID)
 - giocatore(<ins>giocatoriID</ins>,squadraID,nickname)
 - allenamento(<ins>allenamentoID</ins>,data)
 - partecipa(<ins>giocatoreID</ins>,<ins>allenamentoID</ins>,presenza)
 - statistiche(<ins>giocatoreID</ins>,<ins>partitaID</ins>,gol,assist,cartellinigialli,cartellinirossi,titolare)
-
+- tenant(<ins>TenantID</ins>,nome,password)
 ## MOCKUP:
 
 **signin**
