@@ -78,7 +78,7 @@ allenatori tesserati
 **SQL**
 
 ```
-DROP DATABASE IF EXISTS
+DROP DATABASE IF EXISTS TeamTactiCoach;
 CREATE DATABASE IF NOT EXISTS  TeamTactiCoach;
 USE TeamTactiCoach;
  
