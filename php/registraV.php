@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $passcrip = md5($password);
 
         // Controlla se il TenantID esiste nella tabella tenant
-        $verificaTenant = "SELECT * FROM tenant WHERE TenantID='$TenantID'";
+        $verificaTenant = "SELECT * FROM Tenant WHERE TenantID='$TenantID'";
         $resultTenant = $conn->query($verificaTenant);
 
         if ($resultTenant->num_rows > 0) {
