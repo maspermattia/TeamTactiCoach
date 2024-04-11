@@ -41,7 +41,7 @@ try {
             "role" => $row["ruolo"],
         );
         $token = JWT::encode($data, $secret, 'HS256');
-        header("Location: API.php");
+        header("Location: API.php?token=".$token."");
         
     } else {
         echo json_encode(array("error" => true, "msg" => "Invalid email or password"));
