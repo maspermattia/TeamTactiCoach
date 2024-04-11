@@ -8,7 +8,7 @@ USE TeamTactiCoach;
 );
 
 CREATE TABLE IF NOT EXISTS Squadra (
-    SquadraID INT(255) PRIMARY KEY AUTO_INCREMENT,
+    SquadraID VARCHAR(255) PRIMARY KEY ,
     Categoria VARCHAR(255),
     Username VARCHAR(255)
 );

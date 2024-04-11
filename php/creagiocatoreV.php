@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             
             echo $nuovoGiocatoreHTML;
-            alert("fatto");
+            
         } else {
             header("Location: creagiocatore.php");
         }
