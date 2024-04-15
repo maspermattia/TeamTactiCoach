@@ -75,10 +75,10 @@ INSERT INTO Tenant (Nome, Password) VALUES
 
 
 
-INSERT INTO Squadra ( Categoria, Username) VALUES
-( 'Allievi', 'Username1'),
-( 'Giovanissimi', 'Username2'),
-( 'Esordienti', 'Username3');
+INSERT INTO Squadra ( SquadraID, Categoria, Username) VALUES
+( 'squadra1','Allievi', 'Username1'),
+( 'squadra2','Giovanissimi', 'Username2'),
+( 'squadra3','Esordienti', 'Username3');
 
 
 INSERT INTO AllenatoreTesserato (email, Password, Username, Nome, Cognome, DataNascita, ruolo, TenantID) VALUES
