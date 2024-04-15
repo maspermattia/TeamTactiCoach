@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: home.php");
         } else {
             echo "Errore nella registrazione della squadra: " ;
-            header("Location: creasquadra.php");
+            
         }
 
         $stmt->close();

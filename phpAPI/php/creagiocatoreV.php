@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo $nuovoGiocatoreHTML;
             
         } else {
-            header("Location: creagiocatore.php");
+            echo "Errore nella memorizzazione del giocatore: " . $stmt->error;
         }
 
         $stmt->close();

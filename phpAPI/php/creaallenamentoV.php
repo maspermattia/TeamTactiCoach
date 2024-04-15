@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit(); 
     } else {
         echo "Errore nella memorizzazione dell'allenamento: " . $stmt->error;
-        header("Location: creaallenamento.php");
+     
         exit(); 
     }
 
