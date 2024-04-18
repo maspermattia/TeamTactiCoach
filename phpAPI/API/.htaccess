@@ -1,16 +1,13 @@
 RewriteEngine On
 
-# Reindirizzamento per la ricerca di giocatori per nome
-RewriteRule ^api/giocatori/([^/]+)$ giocatori.php?playerName=$1 [L]
+# Reindirizzamento per la ricerca di giocatori
+RewriteRule ^api/giocatori$ giocatori.php [L]
 
-# Reindirizzamento per la ricerca di allenamenti per nome
-RewriteRule ^api/allenamenti/([^/]+)$ allenamenti.php?playerName=$1 [L]
+# Reindirizzamento per la ricerca di allenamenti
+RewriteRule ^api/allenamenti$ allenamenti.php [L]
 
-# Reindirizzamento per la ricerca di squadre per nome
-RewriteRule ^api/squadre/([^/]+)$ squadre.php?playerName=$1 [L]
+# Reindirizzamento per la ricerca di squadre
+RewriteRule ^api/squadre$ squadre.php [L]
 
-# Reindirizzamento per la ricerca di utenti per nome
-RewriteRule ^api/utenti/([^/]+)$ utenti.php?playerName=$1 [L]
-
-# Reindirizzamento per la validazione del token
-RewriteRule ^validate$ validate.html [L]
+# Reindirizzamento per la ricerca di utenti
+RewriteRule ^api/utenti$ utenti.php [L]

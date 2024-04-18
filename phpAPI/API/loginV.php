@@ -1,14 +1,13 @@
 <?php
-
-header ('Content-Type: application/json');
-// import jwt
-require_once '../vendor/autoload.php';
-use \Firebase\JWT\JWT;
+header("Content-Type: application/json");
 
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "TeamTactiCoach";
+require_once '../../vendor/autoload.php';
+use \Firebase\JWT\JWT;
+use \Firebase\JWT\Key;
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -26,29 +25,30 @@ try {
     $stmt = $conn->prepare($query);
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
-    $result = $stmt -> get_result();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $secret = "ciao";
         $data = array(
-            'profile' => 
-                    [
-                        "nome" => $row["Nome"],
-                        "cognome" => $row["Cognome"],
-                        "email" => $row["email"],
-                    ],
-            "role" => $row["ruolo"],
+            'profile' =>
+                [
+                    "Username" => $row["Username"],
+                    "cognome" => $row["Cognome"],
+                    "email" => $row["email"],
+                    "role" => $row["ruolo"],
+                ]
+            
         );
         $token = JWT::encode($data, $secret, 'HS256');
         header("Location: API.php?token=".$token."");
-        
+        echo json_encode(array("error" => false, "msg" => "Login successful", "token" => $token));
     } else {
         echo json_encode(array("error" => true, "msg" => "Invalid email or password"));
     }
 } catch (Exception $e) {
-    
     echo json_encode(array("error" => true, "msg" => "Login failed"));
 }
 
+$conn->close();
 ?>

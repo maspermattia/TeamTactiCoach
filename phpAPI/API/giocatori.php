@@ -12,32 +12,42 @@ if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
 
-$playerName = isset($_GET['playerName']) ? $_GET['playerName'] : null;
+// Import JWT
+require_once '../../vendor/autoload.php';
+use \Firebase\JWT\JWT;
+use \Firebase\JWT\Key;
 
-$sql = "SELECT * FROM Giocatore";
-if ($playerName && $playerName !== 'all') {
-    $sql .= " WHERE GiocatoriID = '$playerName'";
-}
+$token = $_GET['token']; 
 
-$result = $conn->query($sql);
+try {
+    $decoded = JWT::decode($token, new Key('ciao', 'HS256')); 
+   
+    $role = $decoded->profile->role;
+    
+    if ($role === 'admin') {
+        $sql = "SELECT * FROM Giocatore";
+    } else {
+        $username = $decoded->profile->Username;
+        $sql = "SELECT * FROM Giocatore WHERE SquadraID IN (
+            SELECT SquadraID FROM Squadra WHERE Username = '$username'
+        )";
 
-$players = array();
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $players[] = $row;
     }
-} elseif ($playerName === 'all') {
-    $sql = "SELECT * FROM Giocatore";
+    
     $result = $conn->query($sql);
+
+    $players = array();
+
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $players[] = $row;
         }
     }
+    
+    echo json_encode(array( $players));
+} catch (\Exception $e) {
+    echo json_encode(array("error" => true, "msg" => $e->getMessage()));
 }
 
 $conn->close();
-
-echo json_encode($players, JSON_PRETTY_PRINT);
 ?>
