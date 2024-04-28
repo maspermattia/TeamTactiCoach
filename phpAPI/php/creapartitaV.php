@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($verificadata->num_rows > 0) {
         echo "è gia presente una partita in questa data";
-        header("Location: creapartita.php");
+       
     } else {
         
         $stmt = $conn->prepare("INSERT INTO Partita (SquadraID, Avversario, Risultato, Data) VALUES (?, ?, ?, ?)");

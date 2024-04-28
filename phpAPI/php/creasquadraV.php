@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($resultSquadraUtente->num_rows > 0) {
         echo "L'utente ha già una squadra. Non è possibile creare una nuova squadra.";
-        header("Location: creasquadra.php");
+        
     } else {
         
         $stmt = $conn->prepare("INSERT INTO Squadra (SquadraID, Categoria, Username) VALUES (?, ?, ?)");
