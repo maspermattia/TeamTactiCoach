@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO AllenatoreTesserato (email, Nome, Cognome, Ruolo, Username,DataNascita, Password,nome) VALUES ('$email', '$nome', '$cognome', '$ruolo', '$username','$DataNascita' ,'$passcrip','$nome')";
             if ($conn->query($sql) === TRUE) {
                 echo "Registrazione avvenuta con successo";
-               
+                header("Location: login.php");
             } else {
                 echo "Errore nella registrazione: " . $conn->error;
                
