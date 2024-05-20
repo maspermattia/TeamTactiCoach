@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^$ /www/phpAPI/ [R,L]
+RewriteRule ^$ /www/phpAPI/php/ [R,L]

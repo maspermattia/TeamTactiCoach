@@ -102,6 +102,7 @@ $conn->close();
                     <li><a href="creaallenamento.php">Crea Allenamento</a></li>
                     <li><a href="statistiche.php">agggiungi statistiche</a></li>
                     <li><a href="presenze.php">presenze</a></li>
+                    <li><a href="classificapersonale.php">classifica</a></li>
                 </ul>
             </nav>
             <div class="logout">

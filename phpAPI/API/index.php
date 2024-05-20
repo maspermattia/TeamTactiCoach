@@ -72,11 +72,28 @@ a {
 a:hover {
     text-decoration: underline;
 }
-    </style> 
+   
+      .links {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
 
+        .links a {
+            margin-right: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
 
+        .links a:hover {
+            text-decoration: underline;
+        }
+ </style> 
 </head>
 <body>
+     <div class="links">
+            <a href="../php/">Vai all'applicazione</a>
+        </div>
     <div class="container">
         <h2>Login</h2>
         <form method="post" action="loginV.php">
