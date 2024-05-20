@@ -88,7 +88,7 @@
         die("Connessione al database fallita: " . $conn->connect_error);
     }
 
-    $allenatore_username = 1; 
+    $allenatore_username = "Username1"; 
 
     $query = "SELECT G.Nickname, SUM(S.Gol) AS TotaleGol
               FROM Giocatore G
